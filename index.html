@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        #header {
+            background-image: url('image/kebab-maxi.jpg');
+            background-size: auto;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #navigation {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #contenu-wrapper {
+            display: flex;
+            min-height: 90vh;
+        }
+
+        #index-contenu {
+            width: 20%;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        #contenu {
+            width: 80%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        #footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        @media screen and (max-width: 768px) {
+            #contenu-wrapper {
+                flex-direction: column;
+            }
+
+            #index-contenu,
+            #contenu {
+                width: 100%;
+            }
+        }
+    </style>
+    <title>Votre Projet</title>
+</head>
+<body>
+
+    <div id="header">
+        <h1>Titre de Projet</h1>
+    </div>
+
+    <div id="navigation">
+        <a href="index.html">Home</a>
+        <a href="#controller">Controller</a>
+        <a href="#streamlit">Streamlit</a>
+        <a href="#ros">ROS</a>
+        <a href="#conclusion">Conclusion</a>
+    </div>
+
+    <div id="contenu-wrapper">
+        <div id="index-contenu">
+            <h2>Index Contenu</h2>
+            <ul>
+                <li><a href="#section1">I. Info de base projet</a></li>
+                <li><a href="#section2">II. Présentation participants</a></li>
+                <li><a href="#section3">III. Remerciements</a></li>
+            </ul>
+        </div>
+
+        <div id="contenu">
+            <div id="section1">
+                <h2>I. Info de base projet</h2>
+                <p>Contenu de la section 1...</p>
+            </div>
+            <div id="section2">
+                <h2>II. Présentation participants</h2>
+                <p>Contenu de la section 2...</p>
+            </div>
+            <div id="section3">
+                <h2>III. Remerciements</h2>
+                <p>Contenu de la section 3...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer">
+        <!-- Insérez vos logos ici -->
+    </div>
+
+</body>
+</html>
