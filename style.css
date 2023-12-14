@@ -5,11 +5,16 @@ body {
 }
 
 #header {
-    background-image: url('image/kebab-maxi.jpg');
-    background-size: auto;
+    background: url('image/kebab-maxi.jpg') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*filter: blur(2px); */
     color: white;
     text-align: center;
     padding: 20px;
+    
 }
 
 #navigation {
