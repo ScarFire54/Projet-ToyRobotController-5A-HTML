@@ -1,10 +1,16 @@
-body {
-    margin: 0;
+*{
     padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body {
     font-family: Arial, sans-serif;
 }
 
-#header {
+/* HEADER */
+header {
     background: url('image/kebab-maxi.jpg') no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -14,45 +20,71 @@ body {
     color: white;
     text-align: center;
     padding: 20px;
-    
 }
 
-#navigation {
-    background-color: #dbd7d7;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    letter-spacing: 1px;
-    font-family: 'Source Sans Pro Topnav', sans-serif;
-    font-size: 0;
-    top: 56px;
-    z-index: 2;
+/* NAV BAR HORIZONTALE */
+nav {
+    background-color: #0609a1db;
+    height: 50px;
     width: 100%;
-    white-space: nowrap;
     overflow: auto;
-    scrollbar-width: none;
 }
-
-#navigation a {
+nav ul{
+    text-align: center;
+}
+nav ul li{
     display: inline-block;
-    width: auto;
-    margin: 0!important;
-    padding: 5px 15px 5px 15px !important;
-    font-size: 15px!important;
-    text-decoration: none;
-    line-height: 1.5;
+    line-height: 50px;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: white;
+    letter-spacing: 1px;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+nav ul li a.active, nav ul li a:hover{
+    background: #1b9bff;
+    transition: .5s;
 }
 
+/* BODY */
 #contenu-wrapper {
     display: flex;
     min-height: 90vh;
 }
 
+/* NAV BAR VERTICALE */
 #index-contenu {
     width: 20%;
-    background-color: #f2f2f2;
+    background-color: #6b8fdc;
     padding: 20px;
+    color: white;
 }
+
+#index-contenu h2{
+    text-align: center;
+    margin-bottom: 10px;
+    text-decoration: underline;
+}
+
+#index-contenu ul li{
+    display: inline-block;
+    line-height: 30px;
+    margin: 0 5px;
+}
+#index-contenu ul li a{
+    color: white;
+    padding: 5px 3px;
+    border-radius: 3px;
+}
+#index-contenu ul li a:hover{
+    background: #14181b;
+    transition: .5s;
+}
+
 
 #contenu {
     width: 80%;
@@ -60,7 +92,8 @@ body {
     box-sizing: border-box;
 }
 
-#footer {
+/* FOOTER */
+footer {
     background-color: #333;
     color: white;
     text-align: center;
@@ -68,6 +101,8 @@ body {
 
 }
 
+
+/*  */
 @media screen and (max-width: 768px) {
     #contenu-wrapper {
         flex-direction: column;
