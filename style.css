@@ -11,20 +11,38 @@ body {
 
 /* HEADER */
 header {
-    background: url('image/kebab-maxi.jpg') no-repeat center center fixed; 
+    background: url('image/img_header.jpg') no-repeat center top; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    /*filter: blur(2px); */
     color: white;
     text-align: center;
+    padding: 40px;
+    
+}
+
+header h1 {
+    font-size: 50px;
+    font-weight: bold;
+}
+header ul {
+    font-size: 18px;
+    font-style: italic;
+    list-style-type: none;
+    
+    
+}
+header ul li {
+    display: inline;
     padding: 20px;
 }
 
+
+
 /* NAV BAR HORIZONTALE */
 nav {
-    background-color: #0609a1db;
+    background-color: #705b0378;
     height: 50px;
     width: 100%;
     overflow: auto;
@@ -39,6 +57,7 @@ nav ul li{
 }
 nav ul li a{
     color: white;
+    font-weight: bold;
     letter-spacing: 1px;
     font-size: 17px;
     padding: 7px 13px;
@@ -46,7 +65,7 @@ nav ul li a{
     text-transform: uppercase;
 }
 nav ul li a.active, nav ul li a:hover{
-    background: #1b9bff;
+    background: #806704ac;
     transition: .5s;
 }
 
@@ -59,7 +78,7 @@ nav ul li a.active, nav ul li a:hover{
 /* NAV BAR VERTICALE */
 #index-contenu {
     width: 20%;
-    background-color: #6b8fdc;
+    background-color: #806704ac;
     padding: 20px;
     color: white;
 }
@@ -68,6 +87,8 @@ nav ul li a.active, nav ul li a:hover{
     text-align: center;
     margin-bottom: 10px;
     text-decoration: underline;
+    font-size: 25px;
+        
 }
 
 #index-contenu ul li{
@@ -79,27 +100,59 @@ nav ul li a.active, nav ul li a:hover{
     color: white;
     padding: 5px 3px;
     border-radius: 3px;
+    font-size: 17px;
 }
 #index-contenu ul li a:hover{
-    background: #14181b;
+    background: #705b0378;
     transition: .5s;
 }
 
-
+/* Contenu */
 #contenu {
+    background: #f6f5f5;
     width: 80%;
     padding: 20px;
     box-sizing: border-box;
 }
 
+#contenu h2 {
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+#contenu p {
+    font-size: 17px;
+    
+}
+
+
 /* FOOTER */
 footer {
     background-color: #333;
     color: white;
-    text-align: center;
+    
     padding: 10px;
-
 }
+
+.logo_UL {
+    position:relative;
+    width: 9%;
+    left: 0;
+}
+
+.logo_polytech {
+   position: relative;
+    width: 9%;
+    left: 2%;
+}
+
+.logo_mines {
+    Position:relative;
+    width: 3%;
+    left: 4%;
+}
+
 
 
 /*  */
