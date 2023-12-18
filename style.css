@@ -166,3 +166,13 @@ footer {
         width: 100%;
     }
 }
+
+.image_screen {
+    max-width : 80%;
+    height : auto;
+}
+
+.image {
+    max-width : 40%;
+    height : auto;
+}

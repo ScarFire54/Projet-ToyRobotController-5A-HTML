@@ -36,24 +36,169 @@
         <div id="index-contenu">
             <h2>Index Contenu</h2>
             <ul>
-                <li><a href="#section1">I. Info de base projet</a></li>
-                <li><a href="#section2">II. Présentation participants</a></li>
-                <li><a href="#section3">III. Remerciements</a></li>
+                <li><a href="#section1">I. Présentation et objectif de la partie Streamlit</a></li>
+                <li><a href="#section2">II. Interface Streamlit</a></li>
+                <li><a href="#section3">III. Fichier JSON</a></li>
+                <li><a href="#section4">IV. Fonctions importantes</a></li>
+                <li><a href="#section5">V. Connexion Socket</a></li>
+                <li><a href="#section6">VI. Problèmes rencontrés</a></li>
+                <li><a href="#section7">VII. Apports personnels</a></li>
+                <li><a href="#section8">VIII. État actuelle du projet</a></li>
+                <li><a href="#section9">IX. Amélioration possible du projet</a></li>
             </ul>
         </div>
 
         <div id="contenu">
             <div id="section1">
-                <h2>I. Info de base projet</h2>
-                <p>Contenu de la section 1...</p>
+                <h2>I. Présentation et objectif de la partie Streamlit</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Afin de visualiser la position des robots, on va créer une interface homme-machine sur Python avec la bibliothèque Streamlit. Le but est donc de représenter la position des robots, de façon exacte pour ceux qui renvoient les bonnes données et de façon approximative pour ceux qui n’en renvoient pas.
+                    Les données vont être envoyés par socket depuis la partie controller. Elles ont un format particulier mais nous y reviendrons plus tard. Les données et informations seront stockés dans un fichier JSON et de plus amples informations sur la manière dont ils sont stockés seront données.                    
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+            
             </div>
             <div id="section2">
-                <h2>II. Présentation participants</h2>
-                <p>Contenu de la section 2...</p>
+                <h2>II. Interface Streamlit</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Streamlit est une bibliothèque sur Python qui permet de créer une application interactive de données sur web. L’utilisation a été choisi par notre responsable de projet aux Mines de Nancy et est donc obligatoire. Une fois lancé, l’application se lance dans le navigateur et ressemble à cela :    
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/streamlit/img_1.png" />
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Exemple du résultat final sur navigateur</i></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Il y a trois grandes parties à expliquer dans application :
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/streamlit/img_2.png"/>
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Décomposition de l'application</i></p>
+
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Nous allons commencer par parler de la partie 3. Il s’agit de l’affichage de la carte virtuelle avec les carrés de couleurs qui correspondent chacun à un robot. La spécificité de la carte virtuelle est que l’affichage que l’on voit ne représente qu’une partie de la carte. Ce schéma permet de mieux comprendre comment cela est gérer :
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image" src="image/streamlit/img_3.png"/>
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Fonctionnement carte virtuelle</i></p>
+                
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    La partie rouge correspond à la partie de la carte que l’utilisateur peut observer, ce qui signifie que certains robots peuvent être hors vision. Il faut donc pouvoir se déplacer sur la carte afin d’afficher la partie que l’on souhaite observer.
+Pour cela, il y a la partie 1 dans l’image 2. Il s’agit de 2 curseurs simples qui permet de modifier la valeur X et la valeur Y de l’affichage de la carte. En réalité c’est la position du pixel en haut à gauche qui est modifié et après la longueur et la largeur de la carte affichée est choisi dans le code.
+Enfin, la partie 2 de l’image 2 est un tableau qui indique pour chaque robot qui a été crée ces coordonnées. Les coordonnées des robots sont aussi affichées même s’ils sont hors carte.
+    
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
             </div>
             <div id="section3">
-                <h2>III. Remerciements</h2>
-                <p>Contenu de la section 3...</p>
+                <h2>III. Fichier JSON</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Afin de garder en mémoire les données des différents robots, la solution d’utiliser un fichier JSON a été choisi. 
+Les robots sont créés automatiquement par une fonction dans le programme, nous verrons en détail comment plus tard.
+Le fichier JSON est composé de deux types d’objets :
+                </p>
+                <p style='text-align:justify;text-indent:72.0pt'>-	Un objet pour définir la dimension de la carte :</p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/streamlit/img_4.png" />
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Objet Map</i></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:36.0pt'>
+                    Il n’y a que deux composantes « donnees_map », la longueur et la largeur totale de la carte
+                </p>
+                <p style='text-align:justify;text-indent:72.0pt'>-	Des objets robots :</p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image" src="image/streamlit/img_5.png"/>
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Objets Robots</i></p>
+                
+                <p style='text-align:justify;text-indent:36.0pt'>
+                    Les objets robots possèdent de très nombreux paramètres :
+                </p>
+
+                <p style='text-align:justify;text-indent:72.0pt'>- "id" : L'identifiant unique du robot </p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "coord_x" : La coordonnée X de la position du robot sur la carte (en pixels).</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "coord_y" : La coordonnée Y de la position du robot sur la carte (en pixels).</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "longueur" : La longueur du robot (en pixels).</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "hauteur" : La hauteur du robot (en pixels).</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "couleur" : La couleur du robot (soit en string "red","blue", etc soit en tuple (255,0,0)).</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "action" : Une liste qui décrit l'action actuelle du robot.</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "centre_cercle_x" : La coordonnée X du centre du cercle autour du robot pour tourner en cercle</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "centre_cercle_y" : La coordonnée Y du centre du cercle autour du robot pour tourner en cercle.</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "angle" : L'angle de rotation du robot (en degrés).</p>
+                <p style='text-align:justify;text-indent:72.0pt'>- "etape" : L'étape actuelle du robot dans son virage en cercle.</p>
+
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Ce fichier JSON peut être utilisé pour définir les paramètres initiaux des robots et de la carte, et ces données peuvent être modifiées au fur et à mesure que les robots effectuent des mouvements et des actions sur la carte.
+                </p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Le paramètre action sert à donner quel ordre doit exécuter le robot et comment il doit se déplacer. Il s’agit d’une liste de la forme [a,b]. Son fonctionnement peut être expliqué avec cette image :
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/streamlit/img_6.png" />
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Explication déplacement</i></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Les paramètres « centre_cercle_x », « centre_cercle_y », « angle » et « etape » ne sont utile que dans la fonction pour tourner en cercle qui sera expliquer plus tard.
+                </p>
+
+
+            </div>
+
+            <div id="section4">
+                <h2>IV. Fonctions importantes</h2>
+                
+            </div>
+
+            <div id="section5">
+                <h2>V. Connexion Socket</h2>
+                
+            </div>
+
+            <div id="section6">
+                <h2>VI. Problèmes rencontrés</h2>
+                
+            </div>
+
+            <div id="section7">
+                <h2>VII. Apports personnels</h2>
+                
+            </div>
+
+            <div id="section8">
+                <h2>VIII. État actuelle du projet </h2>
+                
+            </div>
+
+            <div id="section9">
+                <h2>IX. Amélioration possible du projet </h2>
+                
             </div>
         </div>
     </section>
