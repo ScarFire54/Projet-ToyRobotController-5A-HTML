@@ -42,9 +42,7 @@
                 <li><a href="#section4">IV. Fonctions importantes</a></li>
                 <li><a href="#section5">V. Connexion Socket</a></li>
                 <li><a href="#section6">VI. Problèmes rencontrés</a></li>
-                <li><a href="#section7">VII. Apports personnels</a></li>
-                <li><a href="#section8">VIII. État actuelle du projet</a></li>
-                <li><a href="#section9">IX. Amélioration possible du projet</a></li>
+                <li><a href="#section7">VII. État actuelle du projet</a></li>
             </ul>
         </div>
 
@@ -167,37 +165,106 @@ Le fichier JSON est composé de deux types d’objets :
                 <p style='text-align:justify;text-indent:18.0pt'>
                     Les paramètres « centre_cercle_x », « centre_cercle_y », « angle » et « etape » ne sont utile que dans la fonction pour tourner en cercle qui sera expliquer plus tard.
                 </p>
-
-
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
             </div>
 
             <div id="section4">
                 <h2>IV. Fonctions importantes</h2>
-                
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:36.0pt'>
+                    -	Update_addi_ordre
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/streamlit/img_9.png" />
+                </p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Il s’agit d’une fonction qui s’active à intervalle régulière et qui vérifie l’action enregistrés pour chaque robot dans le fichier JSON. Selon l’action, on lance une fonction pour déplacer le robot.
+                </p>
+
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:36.0pt'>
+                    -	Robot_existant
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/streamlit/img_7.png" />
+                </p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Cette fonction crée automatiquement l’objet robot dans le fichier JSON si celui-ci n’existe pas. Cette fonction est appelée quand une donnée est reçue depuis le socket.  
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:36.0pt'>
+                    -	Deplacement_cercle_par_angle_progressif
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/streamlit/img_8.png" />
+                </p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Il s’agit d’une partie de la fonction qui permet de configurer les tournant en cercle. Il y a l’exemple ici du virage en avant vers la gauche. Si l’action est [1,-1] alors on commence par définir le centre du cercle qui servira pour tourner. Une fois cela fait, on modifie les coordonnées du robot en X et Y pour faire un mouvement en forme de cercle.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
             </div>
 
             <div id="section5">
                 <h2>V. Connexion Socket</h2>
-                
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Afin de savoir quelles commandes sont envoyés au robot afin de les afficher sur la carte, on crée un socket. On paramètre streamlit comme étant l’hôte avec une adresse « 0.0.0.0 » et un port « 12345 ».
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Les données sont reçues avec la bibliothèque pickle afin d’envoyer une liste.
+Les données reçues ont la forme [id, [action]]
+
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    « action » peut prendre plusieurs valeur et plusieurs formes. Soit « action » est de la forme [a,b] pour faire des mouvements soit une chaîne de caractères avec soit « exit » pour quitter la connexion soit « suppr » pour enlever un robot.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
             </div>
 
             <div id="section6">
                 <h2>VI. Problèmes rencontrés</h2>
-                
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Durant les cinq semaines de projet, de nombreux problèmes ont été rencontrés vis-à-vis de streamlit et de la communication avec le controller. Un des premiers problèmes rencontrés a été le rafraichissement régulier de la page afin de modifier la carte virtuelle ainsi que le tableau de valeur. Streamlit ne permet pas de gérer se genre de choses et par conséquent il faut reconstruire l’objet régulièrement.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Il faut aussi faire attention aux données qui passe dans le socket. On avait un problème où à la connexion avec le controller, un robot avec un id vide était créé et faisait buguer tout le programme. Il faut donc vérifier que les données qui arrive sont bien conformes et possibles. 
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Il faut aussi appeler le script du programme de streamlit en subprocess car il tourne en boucle et empêche toute autres actions. C’est donc pour cela qu’il y a un fichier « main.py » qui contient le socket et qui appelle le script « page_streamlit.py ». La très grande majorité des fonctions sont dans un fichier « fonction_projet.py ».
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
             </div>
-
             <div id="section7">
-                <h2>VII. Apports personnels</h2>
-                
-            </div>
-
-            <div id="section8">
-                <h2>VIII. État actuelle du projet </h2>
-                
-            </div>
-
-            <div id="section9">
-                <h2>IX. Amélioration possible du projet </h2>
+                <h2>VII. État actuelle du projet et améliorations </h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    La partie streamlit est actuellement fonctionnelle, elle permet de visualiser la position de plusieurs robots (jusqu’à 10), de visualiser leur différent mouvement en même temps, d’afficher les coordonnées dans le tableau et de se connecter à un controller. Afin d’améliorer la partie streamlit du projet, de nombreux ajouts et améliorations sont possibles. La première chose à faire pour pouvoir l’utiliser pleinement est de créer une échelle entre le nombre de pixels et les dimensions réels pour avoir des tailles de robots qui soient proches de la réalité et que leur déplacement le soit aussi. 
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Il faudrait donc retester tous les déplacements afin de vérifier l’échelle. Il faudrait aussi faire une fonction qui crée le fichier JSON s’il n’existe pas par défaut.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Certains robots envoient retournent directement des coordonnées, il faut donc pouvoir les recevoir, les lire et les utiliser. Cela signifie aussi qu’il faut pouvoir avoir plusieurs connexions de socket en même temps ce qui n’est pas pour l’instant le cas.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    De nombreuses autre choses sont possibles. Il faut aussi suivre les modifications fait sur les autres parties du projet afin d’avoir une correspondance.
+                </p>
                 
             </div>
         </div>
