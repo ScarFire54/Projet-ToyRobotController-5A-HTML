@@ -51,7 +51,7 @@
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='text-align:justify;text-indent:18.0pt'>
-                    Cette partie vise à gérer le contrôle des différents robots du Techlab. L'objectif est de simplifier et uniformiser le contrôle de ces derniers en utilisant un programme unique développé dans le langage Python. Ce programme est constitué de plusieurs fichiers permettant son bon fonctionnement, notamment un fichier <i>main</i> pour lancer le programme, un fichier <i>main_interface</i> permettant de configurer la liste des robots à utiliser avec leur IP respective, un fichier <i>interface_robot</i> qui permet de se positionner sur un robot particulier à contrôler parmi ceux présent dans la liste et se connecter à streamlit, un fichier <i>input_manager</i> permettant de gérer les inputs clavier/manette et pour finir des fichiers de contrôles spécifiques à chaque robot afin d’adapter la commande à envoyer à ces derniers.
+                    Cette partie vise à gérer le contrôle des différents robots du Techlab. L'objectif est de simplifier et uniformiser le contrôle de ces derniers en utilisant un programme unique développé dans le langage Python. Ce programme est constitué de plusieurs fichiers permettant son bon fonctionnement, notamment un fichier <i>main</i> pour lancer le programme, un fichier <i>main_interface</i> permettant de configurer la liste des robots à utiliser avec leur IP respective, un fichier <i>interface_robot</i> qui permet de se positionner sur un robot particulier à contrôler parmi ceux présents dans la liste et se connecter à streamlit, un fichier <i>input_manager</i> permettant de gérer les inputs clavier/manette et pour finir des fichiers de contrôles spécifiques à chaque robot afin d’adapter la commande à envoyer à ces derniers.
                 </p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
@@ -62,7 +62,7 @@
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='text-align:justify;text-indent:18.0pt'>
                     Le programme reconnait les inputs du clavier et de la manette Xbox360 grâce aux librairies keyboard pour le clavier et pygame pour la manette. Les touches sont associées à des actions spécifiques, telles qu’avancer, reculer, tourner à droite ou à gauche… Il est uniquement possible d’utiliser soit le clavier soit la manette afin d’éviter les conflits dans la gestion des inputs. Il y a cependant une touche permettant d’échanger facilement de modes d’input. Par défaut, le clavier est utilisé, lors du changement de périphérique, si aucune manette n’est détectée, le périphérique reste alors sur le clavier.  
-                    Tous les inputs possibles d’utilisation se limite aux nombres de bouton disponible sur une manette. Ces derniers sont répertoriés dans 2 variables : <i>buttonAction</i> et <i>directionAction</i>.
+                    Tous les inputs possibles d’utilisation se limitent au nombre de boutons disponible sur une manette. Ces derniers sont répertoriés dans 2 variables : <i>buttonAction</i> et <i>directionAction</i>.
                 </p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p align=center style='text-align:center;text-indent:18.0pt'> 
@@ -92,7 +92,7 @@
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='text-align:justify;text-indent:18.0pt'>
-                    Le programme utilise différentes méthodes de connexion en fonction du robot. Les robots, sont directement connectés par wifi à l’aide d’une connexion permanente qui est établie avec ces derniers dès le début du programme lorsque la liste des robots est chargée par le programme. 
+                    Le programme utilise différentes méthodes de connexion en fonction du robot. Les robots, sont directement connectés par Wifi à l’aide d’une connexion permanente qui est établie avec ces derniers dès le début du programme lorsque la liste des robots est chargée par le programme. 
                 </p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p align=center style='text-align:center;text-indent:18.0pt'> 
@@ -112,7 +112,7 @@
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='text-align:justify;text-indent:18.0pt'>
-                    La liste des robots est prédéfinie dans le programme et peut être modifiée manuellement. Il nous est également possible de contrôler un robot différent sans quitter le programme en appuyant sur une touche à condition que ce dernier soit dans la liste des robots prédéfinie dans le fichier main_interface comme nous pouvons le voir ici :
+                    La liste des robots est prédéfinie dans le programme et peut-être modifiée manuellement. Il nous est également possible de contrôler un robot différent sans quitter le programme en appuyant sur une touche à condition que ce dernier soit dans la liste des robots prédéfinie dans le fichier main_interface comme nous pouvons le voir ici :
                 </p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p align=center style='text-align:center;text-indent:18.0pt'> 
@@ -127,7 +127,7 @@
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p style='text-align:justify;text-indent:18.0pt'>
-                    Chaque robot se voit attribuer un ID unique permettant à Streamlit de les différencier. Soit, dans le cas des robots qui ne donne aucun retour de leur déplacement, le programme envoie les informations de mouvement à Streamlit qui affiche une carte des déplacements du robot, soit le robot envoie directement lui-même ces informations. L’envoie des informations à streamlit par ce programme se passe après que l’action de déplacement a été correctement envoyé au robot en question. Les données sont envoyées via un socket créé au démarrage du programme et à l’aide de la bibliothèque pickle afin d’envoyer une liste permettant de minimiser la taille du paquet tout en conservant un maximum d’informations. Les données envoyées sont sous la forme [id, [action]]. « action » peut prendre plusieurs valeur et plusieurs formes. Soit « action » est de la forme [a,b] pour faire des mouvements soit une chaîne de caractères avec soit « exit » pour quitter la connexion soit « suppr » pour enlever un robot. Lorsque « action » est de la forme [a,b], voici un schéma expliquant son fonctionnement.
+                    Chaque robot se voit attribuer un ID unique permettant à Streamlit de les différencier. Soit, dans le cas des robots qui ne donnent aucun retour de leur déplacement, le programme envoie les informations de mouvement à Streamlit qui affiche une carte des déplacements du robot, soit le robot envoie directement lui-même ces informations. L’envoi des informations à streamlit par ce programme se passe après que l’action de déplacement a été correctement envoyée au robot en question. Les données sont envoyées via un socket créé au démarrage du programme et à l’aide de la bibliothèque pickle afin d’envoyer une liste permettant de minimiser la taille du paquet tout en conservant un maximum d’informations. Les données envoyées sont sous la forme [id, [action]]. « action » peut prendre plusieurs valeurs et plusieurs formes. Soit « action » est de la forme [a,b] pour faire des mouvements soit une chaîne de caractères avec soit « exit » pour quitter la connexion soit « suppr » pour enlever un robot. Lorsque « action » est de la forme [a,b], voici un schéma expliquant son fonctionnement.
                 </p>
                 <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
                 <p align=center style='text-align:center;text-indent:18.0pt'> 
