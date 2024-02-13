@@ -36,28 +36,127 @@
         <div id="index-contenu">
             <h2>Index Contenu</h2>
             <ul>
-                <li><a href="#section1">I. Présentation et objectif de la partie Controller</a></li>
-                <li><a href="#section2">II. Interface Streamlit</a></li>
-                <li><a href="#section3">III. Fichier JSON</a></li>
-                <li><a href="#section4">IV. Fonctions importantes</a></li>
-                <li><a href="#section5">V. Connexion Socket</a></li>
-                <li><a href="#section6">VI. Problèmes rencontrés</a></li>
-                <li><a href="#section7">VII. État actuelle du projet</a></li>
+                <li><a href="#section1">I. Présentation et objectif de la partie du Controller</a></li>
+                <li><a href="#section2">II. Gestion des inputs</a></li>
+                <li><a href="#section3">III. Contrôle des différents types de robots</a></li>
+                <li><a href="#section4">IV. Envoi des informations à Streamlit</a></li>
+                <li><a href="#section5">V. Problèmes rencontrés</a></li>
+                <li><a href="#section6">VI. État actuel du projet et améliorations</a></li>
             </ul>
         </div>
 
         <div id="contenu">
             <div id="section1">
-                <h2>I. Info de base projet</h2>
-                <p>Contenu de la section 1...</p>
+                <h2>I. Présentation et objectif de la partie du Controller</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Cette partie vise à gérer le contrôle des différents robots du Techlab. L'objectif est de simplifier et uniformiser le contrôle de ces derniers en utilisant un programme unique développé dans le langage Python. Ce programme est constitué de plusieurs fichiers permettant son bon fonctionnement, notamment un fichier <i>main</i> pour lancer le programme, un fichier <i>main_interface</i> permettant de configurer la liste des robots à utiliser avec leur IP respective, un fichier <i>interface_robot</i> qui permet de se positionner sur un robot particulier à contrôler parmi ceux présent dans la liste et se connecter à streamlit, un fichier <i>input_manager</i> permettant de gérer les inputs clavier/manette et pour finir des fichiers de contrôles spécifiques à chaque robot afin d’adapter la commande à envoyer à ces derniers.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
             </div>
             <div id="section2">
-                <h2>II. Présentation participants</h2>
-                <p>Contenu de la section 2...</p>
+                <h2>II. Gestion des inputs</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Le programme reconnait les inputs du clavier et de la manette Xbox360 grâce aux librairies keyboard pour le clavier et pygame pour la manette. Les touches sont associées à des actions spécifiques, telles qu’avancer, reculer, tourner à droite ou à gauche… Il est uniquement possible d’utiliser soit le clavier soit la manette afin d’éviter les conflits dans la gestion des inputs. Il y a cependant une touche permettant d’échanger facilement de modes d’input. Par défaut, le clavier est utilisé, lors du changement de périphérique, si aucune manette n’est détectée, le périphérique reste alors sur le clavier.  
+                    Tous les inputs possibles d’utilisation se limite aux nombres de bouton disponible sur une manette. Ces derniers sont répertoriés dans 2 variables : <i>buttonAction</i> et <i>directionAction</i>.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/controller/association_touche.png" />
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Ensuite, ces commandes sont attribuées à l’aide du code suivant pour le clavier :
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/controller/touche_clavier.jpg" />
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Et pour la manette :
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/controller/touche_xbox.jpg" />
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
             </div>
             <div id="section3">
-                <h2>III. Remerciements</h2>
-                <p>Contenu de la section 3...</p>
+                <h2>III. Contrôle des différents types de robots</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Le programme utilise différentes méthodes de connexion en fonction du robot. Les robots, sont directement connectés par wifi à l’aide d’une connexion permanente qui est établie avec ces derniers dès le début du programme lorsque la liste des robots est chargée par le programme. 
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/controller/connexion_robots.png" />
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Gestion de la connexion aux robots</i></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Chaque robot nécessite un contrôleur spécifique pour interpréter les instructions génériques du programme. Les différents inputs présents dans les variables évoqués précédemment sont convertis en actions compréhensibles par le robot concerné en traduisant l’action générique du programme en un signal spécifique au robot. L'ajout d'un nouveau type de robot est donc simplifié, il suffit de créer un nouveau contrôleur spécifique à ce robot. Voici un court exemple de la façon dont cela peut se présenter :
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/controller/code_petoi.png" />
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Exemple de communication avec un robot</i></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    La liste des robots est prédéfinie dans le programme et peut être modifiée manuellement. Il nous est également possible de contrôler un robot différent sans quitter le programme en appuyant sur une touche à condition que ce dernier soit dans la liste des robots prédéfinie dans le fichier main_interface comme nous pouvons le voir ici :
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/controller/liste_robot.png" />
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Exemple de liste de robots</i></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+            </div>
+            <div id="section4">
+                <h2>IV. Envoi des informations à Streamlit</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Chaque robot se voit attribuer un ID unique permettant à Streamlit de les différencier. Soit, dans le cas des robots qui ne donne aucun retour de leur déplacement, le programme envoie les informations de mouvement à Streamlit qui affiche une carte des déplacements du robot, soit le robot envoie directement lui-même ces informations. L’envoie des informations à streamlit par ce programme se passe après que l’action de déplacement a été correctement envoyé au robot en question. Les données sont envoyées via un socket créé au démarrage du programme et à l’aide de la bibliothèque pickle afin d’envoyer une liste permettant de minimiser la taille du paquet tout en conservant un maximum d’informations. Les données envoyées sont sous la forme [id, [action]]. « action » peut prendre plusieurs valeur et plusieurs formes. Soit « action » est de la forme [a,b] pour faire des mouvements soit une chaîne de caractères avec soit « exit » pour quitter la connexion soit « suppr » pour enlever un robot. Lorsque « action » est de la forme [a,b], voici un schéma expliquant son fonctionnement.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p align=center style='text-align:center;text-indent:18.0pt'> 
+                    <img class="image_screen" src="image/streamlit/img_6.png" />
+                </p>
+                <p align=center style='text-align:center;text-indent:18.0pt'><i>Explication des actions</i></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+            </div>
+            <div id="section5">
+                <h2>V. Problèmes rencontrés</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Durant les cinq semaines de projet, nous avons rencontré un problème significatif pour la gestion du contrôleur. Ce problème fut l’usage de threads qui s’est avéré trop complexe. En effet, l’usage de threads ralentissait trop le programme et ne permettait pas son bon fonctionnement. Les threads auraient permis de pouvoir séparer correctement l’attribution des ressources pour la connexion avec streamlit ou encore celle avec les différents robots. En effet, avec l’usage de thread, on pourrait facilement contrôler plusieurs robots en simultané sur un seul ordinateur.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+            </div>
+            <div id="section6">
+                <h2>VI. État actuel du projet et améliorations</h2>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='text-align:justify;text-indent:18.0pt'>
+                    Actuellement, le programme permet de contrôler de manière basique des robots, en particulier le Turtle Bot et le Petoi. Pour le Petoi, il envoie également les informations de déplacement à Streamlit. Les futures améliorations envisagées incluent la transmission du type de robot à Streamlit pour une représentation plus réaliste des déplacements en fonction du robot. 
+                    La possibilité de contrôler simultanément plusieurs robots du même type serait également une amélioration envisageable afin de permettre le multi-contrôle. Dans ce cas, il faudra alors réaliser du muti-processing et non multi-threading afin de les faire fonctionner en parallèle. Ces évolutions contribueront à enrichir l'expérience de contrôle et de visualisation dans le projet.
+                </p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
+                <p style='margin-left:18.0pt'><o:p>&nbsp;</o:p></p>
             </div>
         </div>
     </section>
